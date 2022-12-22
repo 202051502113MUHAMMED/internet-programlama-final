@@ -40,6 +40,18 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+
+     <script>  
+    
+    function test(){
+                document.getElementById('list').style.display='flex'
+
+            }
+    function test2(){
+                document.getElementById('list').style.display='none'
+
+            }
+    </script>
 </head>
 <body>
     
@@ -59,22 +71,24 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
             </div>
             
             
-            <a href="" class="logo"> <?php echo $user ?> </a>
+               <a href="" class="logo"> <?php echo $user ?> </a>
             <ul class="main-nav">
                 <li class="mina"><a href="#HTML"> HTML</a></li>
                 <li><a href="#CSS"> CSS</a></li>
                 <li><a href="#JavaScript"> JavaScript </a></li>
                 
-                <li>
-                    <a href=""> programlama Listesi </a>
+                <li >
+                     <button class="pro"  onclick="test()"> programlama Listesi </button>
+                    <!-- <a  href="" onclick="test()"> programlama Listesi </a> -->
                     <!-- başla  menu  -->
-                    <div class="programlama">
+                    <div id="list" class="programlama">
+                    <button class="pro2"  onclick="test2()"> X</button>
                         <div class="image">
                             <img src="imges/megamenu.png" alt="">
                         </div>
                         <ul class="links">
                             <li>
-                                <a href="php/index1.php"> <i class="fa-brands fa-python"></i> Python </a>
+                                <a href="#Python"> <i class="fa-brands fa-python"></i> Python </a>
                             </li>
                             <li>
                                 <a href="#PHP"> <i class="fa-brands fa-php"></i> PHP </a>
@@ -94,7 +108,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
                         </ul>
                         <ul class="links">
                             <li>
-                                <a href="^#C#"> <i class="fa-sharp fa-solid fa-c">#</i>  C# </a>
+                                <a href="#C#"> <i class="fa-sharp fa-solid fa-c">#</i>  C# </a>
                             </li>
                             <li>
                                 <a href="#HTML" > <i class="fa-brands fa-html5"></i> HTML </a>
@@ -110,10 +124,15 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
                             </li>
 
                         </ul>
+                       
                     </div>
                     <!-- bitiç  menu  -->
                 </li>
             </ul>
+            <div class="boxa">
+                <a class="done"  href="ListeEkran.php"> lestie <i class="fas fa-long-arrow-alt-right right"></i> </a>
+            </div>
+            
             <div id="google_translate_element"></div>
 
             <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -642,7 +661,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
     </div>
 
 
-    <div class="Cşa" id="Python">
+    <div class="Cşa" id="C#">
         <h2 class="main-title"><a href="#C#">C#</a> </h2>
         <div class="container">
             <div class="box">

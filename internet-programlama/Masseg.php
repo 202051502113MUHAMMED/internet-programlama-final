@@ -7,6 +7,12 @@
     <title>Message</title>
     <link rel="stylesheet" href="css/kayd_giriş.css">
 
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    
+
   <style>
 
 :root{
@@ -130,7 +136,12 @@ border: 1px solid white;
     width: 300px;
     max-width: 100%;
 }
-
+.Massg .content .done{
+        background-color: var(--min2-color-alt);
+    padding: 7px;
+    color: white;
+    border-radius: 7px;
+}
   </style>
 
     
@@ -176,7 +187,15 @@ border: 1px solid white;
                 ?>
                     <textarea class="input" name="messag" placeholder="sikintisi yaz"></textarea>
 
-                    <input type="submit" value="submit" name="submit">
+                    <input type="submit" value="submit" name="submit"><br>
+
+                
+                      <p> <a  class="done"  href="AnaEkran.php"> HOME <i class="fa-solid fa-arrow-right-long"></i></a></p> 
+                    <br>
+                    
+                       <p><a class="done"  href="ListeEkran.php"> lestie <i class="fa-solid fa-arrow-right-long"></i> </a></p> 
+                    
+                    
                 </form>
             </div>
         </div>
