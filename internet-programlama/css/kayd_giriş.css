@@ -1,0 +1,93 @@
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+:root{
+
+    
+    --min-color: #2196f3;
+    --min2-color-alt:#1787e0;
+    --min4-color:#777;
+    --min5-color: #551a8b;
+    --min3-background:#ececec;
+    --tra-transition: 0.3s;
+    --main-padding-top:100px;
+    --main-padding-bottom:100px;
+    --main-text-transform: capitalize;
+
+
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: var(--main-text-transform);
+    font-style: italic;
+}
+
+a{
+   text-decoration: none;
+ }
+
+ .main{
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+
+ }
+ .main  input,select{
+    padding: 8px;
+    margin: 8px;
+    background-color: rgb(245, 245, 245);
+    border:1px solid var(--min2-color-alt);
+    outline: none;
+    border-radius: 3px;
+
+ }
+ .main h1{
+    color: #0ec0a5;
+    font-size: 45px;
+ }
+ .main i{
+    color:black;
+    font-size: 18px;
+ }
+ select{
+    color: black;
+ }
+
+ input[type="submit"]{
+    background-color: var(--min-color);
+    width: 180px;
+    font-size: 17px;
+    color: white;
+    cursor: pointer;
+ }
+ input[type="submit"]:hover{
+    background-color: var(--min2-color-alt);
+    border: 1px solid white;
+    transition: var(--tra-transition);
+    
+ }
+ #log{
+    background-color: red;
+    color: white;
+    padding: 8px;
+    border-radius: 2px;
+ }
+ #log:hover{
+    background-color: #d80d0d;
+    transition: var(--tra-transition);
+    border: 1px solid rgb(235, 99, 99);
+ }
+ #error{
+    color: red;
+    padding: 4px;
+   
+ }
