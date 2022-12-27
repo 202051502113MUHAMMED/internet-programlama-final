@@ -45,7 +45,7 @@ if(!isset($err_s )){
         }
 
     }else{
-        $username_err   = '<p id="error"> worng username or password </p>';
+        $username_error   = '<p id="error"> worng username or password </p>';
     include('index.php');
     exit();
    
