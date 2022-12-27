@@ -60,14 +60,16 @@ if(isset($_POST['submit'])){
     }
 
     
-    else{
+  
+   
+      else{
         if(($err_s == 0) && ($num_rows == 0)){
             $sql = "INSERT INTO mess(username,email,tlfo,messag)VALUES ('$username','$email','$tlfo','$messag') ";
-             mysqli_query($coon1,$sql);
+             mysqli_query($coon1,$sql);    
              header('location:AnaEkran.php');
-             
-             
+
             
+    
         }
         else{
             include('ListeEkran.php');
@@ -75,7 +77,6 @@ if(isset($_POST['submit'])){
            
         }
     }
-
 
 }
 

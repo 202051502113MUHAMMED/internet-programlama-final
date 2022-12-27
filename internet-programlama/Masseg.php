@@ -167,7 +167,7 @@ border: 1px solid white;
                     echo $user_error ;
                 } 
                 ?>
-                    <input class="input" type="text" placeholder="Ad" name="username">
+                    <input class="input" type="text" placeholder="username" name="username">
 
                     <?php if(isset($email_error)){
                     echo $email_error ;
@@ -179,13 +179,18 @@ border: 1px solid white;
                     echo  $nomara_error;
                 } 
                 ?>
-                    <input class="input" type="text" placeholder=" TL No" name="tlfo">
+                    <input class="input" type="text" placeholder=" Phone Number" name="tlfo">
 
                     <?php if(isset( $messag_error)){
                     echo  $messag_error;
                 } 
                 ?>
-                    <textarea class="input" name="messag" placeholder="sikintisi yaz"></textarea>
+                    <textarea class="input" name="messag" placeholder="The Problem"></textarea>
+
+                    <?php if(isset( $tamam)){
+                    echo  $tamam;
+                } 
+                ?>
 
                     <input type="submit" value="submit" name="submit"><br>
 

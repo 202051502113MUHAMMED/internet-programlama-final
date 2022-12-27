@@ -36,7 +36,7 @@
 
 
 
-    <form action="kayd_ol_post.php" method="POST">
+    <form action="Add_post.php" method="POST">
 
 
                 <?php if(isset($user_error)){
@@ -191,12 +191,11 @@
                  <option value="1907">1907</option><option value="1906">1906</option><option value="1905">1905</option>
              </select><Br>
           
-            <input type="submit" name="submit" id="submit" value="Register"  ><br>
+            <input type="submit" name="submit" id="submit" value="Add"  ><br>
 
          </form> 
            
-   <h3> Or</h3><br>
-   <a  id="log" href="index.php"> Log in</a>
+   
 
 </div>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

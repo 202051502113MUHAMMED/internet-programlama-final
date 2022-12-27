@@ -58,7 +58,8 @@ a{
 }
 footer{
     background-color: #191919;
-    padding: 70px 0 0;
+    padding: 100px 0 0;
+   
 }
 footer .container{
     display: grid;
@@ -177,7 +178,7 @@ footer .container .footer-gallery img{
 }
 
 footer .copyright{
-    padding: 25px;
+    padding: 45px;
     text-align: center;
     color: white;
     margin: 50px 0 0;
@@ -221,9 +222,46 @@ footer  .copyright span:nth-child(2){
     top: -28px;
     max-width: 45px;
     border-radius: 27px;
+    position: absolute;
+    top:19px;
 }
-#error{
 
+footer .container .files{
+  color:white;
+}
+
+@keyframes min-color{
+    0%{
+        text-shadow: 1px 1px 20px  #ff006f , 0 5px 20px #d6249f, 0 0 30px #285AEB;
+    }
+    50%{
+        text-shadow: 1px 1px 20px  #ff006f , 0 5px 20px #d6249f, 0 0 30px #285AEB;
+    }
+    100%{
+        text-shadow: -3px -3px  10px #ff1177, 0 5px 5px #d6249f, 0 0 15px #285AEB;
+    }
+}
+@keyframes min2-color {
+    0%{
+        text-shadow: 0 0 20px #1275f7, 0 0 30px #1459b3, 0 0 35px #1275f7;
+    }
+    5%{
+        text-shadow: 0 0 15px #1275f7, 0 0 20px #1459b3, 0 0 25px #1275f7;
+    }
+    0%{
+        text-shadow: 0 0 8px #1275f7, 0 0 10px #1459b3, 0 0 15px #1275f7;
+    }
+}
+@keyframes min3-color{
+    0%{
+        text-shadow: 0 0 20px #21e468, 0 0 30px #48ee85, 0 0 35px #0ec0a5;
+    }
+    5%{
+        text-shadow: 0 0 10px #21e468, 0 0 20px #48ee85, 0 0 25px #0ec0a5;
+    }
+    100%{
+        text-shadow: 0 0 5px #21e468, 0 0 10px #48ee85, 0 0 15px #0ec0a5;
+    }
 }
 
     </style>
@@ -234,18 +272,30 @@ footer  .copyright span:nth-child(2){
 
 
 
+
     <footer>
+    <div id="google_translate_element"></div>
 
     
         <div class="container">
             <div class="box">
             <div class="img">
+
+             
             <a class="a" href="logut_post.php"><i class="fa-solid fa-arrow-right-from-bracket fa_4x"></i> Exit</a>
 
-                <?php echo $muh; ?>
+                <?php echo $muh; ?> 
                 <h1 class="h1"> hello, <?php echo $user ?> </h1>
+               
             </div>
-      
+             <div>
+                  <a href="setting.php">
+                <i class="fa-solid fa-gear fa-2x" style="color: white; position: relative;left: 30px; bottom: 12px;"> </i>
+                 
+                </a>
+            <span style="    color: white;position: relative;left: 50px;font-size: 23px;top: -15px;"> setting</span>
+             </div>
+            
             
                     <?php if(isset($error)){
                         echo $error;
@@ -253,10 +303,27 @@ footer  .copyright span:nth-child(2){
                     
                     ?>
              <form action="file-post.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" id="file"> 
+                <input class="files" type="file" name="file" id="file" placeholder="username"> </input>
             
                 <input type="submit" value="UPLOAD" name="submit">
              </form>
+
+             <ul class="social">
+                     <li>
+                        <a href="https://instagram.com/abo_coma?utm_medium=copy_link" target="balnk">
+                            <i class="fa-brands fa-instagram icon"></i></a>
+                     
+                     <li>
+                        <a href="https://www.facebook.com/Muhammetsusi" target="balnk"> 
+                            <i class="fa-brands fa-facebook-f icon"></i>   
+                            </a>
+                     </li>
+                     <li>
+                        <a href="https://wa.me/qr/MDR2SP3TWCUXB1"  target="balnk">
+                            <i class="fa-brands fa-whatsapp icon"></i>
+                        </a>
+                     </li>
+                 </ul>
             
             </div>
             
@@ -329,10 +396,13 @@ footer  .copyright span:nth-child(2){
             </div>
         </div>
         <p class="copyright">
-           <span>elzero</span> 
+           <span>M.ELSUSE</span> 
           &copy;2022 <span> Her Yerde</span>All rights are available <br>
        </p>
     </footer>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
 

@@ -258,6 +258,8 @@ header .container .boxa:hover .right{
 }
 header .container .logut{
     color: black;
+    position: relative;
+    left: 10px;
 }
 header .container .logut:hover{
     color: var(--min-color);

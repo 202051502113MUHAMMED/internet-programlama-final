@@ -1,10 +1,141 @@
+<?php
+include ('inclod/connections.php');
+
+    $id=$_GET['id'];
+    $sql= "SELECT * FROM users WHERE id='$id'" ;
+    $data=mysqli_query($coon,$sql);
+    $row=mysqli_fetch_array($data);
+    $username=$row['username'];
+    $email=$row['email'];
+    $password=$row['password'];
+    $gender=$row['gender'];
+  
+    
+
+
+if(isset($_POST['submit'])){
+    
+    $username = stripcslashes(strtolower( $_POST['username'] )) ;//stripcslashes() Güvenlik için / almaz ..strtolower kuşuk harf alir
+    $email = stripcslashes($_POST['email']);
+    $password = stripcslashes($_POST['password']);
+
+
+    $username =  htmlentities(mysqli_real_escape_string($coon,$_POST['username']));  
+    $email =  htmlentities(mysqli_real_escape_string($coon,$_POST['email']));
+    $password =  htmlentities(mysqli_real_escape_string($coon,$_POST['password']));
+    $md5_pass = md5($password);// يقوم بتشفير كلمة السر الى كود عشوائي güvenli için
+
+
+
+    if(isset($_POST['birthday_month'])   && isset($_POST['birthday_yearr']) && isset($_POST['birthday_day'])){
+        $birthday_month = (int) $_POST['birthday_month'];
+        $birthday_yearr = (int) $_POST['birthday_yearr'];
+        $birthday_day = (int) $_POST['birthday_day'];
+        $birthdayy = htmlentities(mysqli_real_escape_string($coon,$birthday_day.'-'.$birthday_month.'-'.$birthday_yearr)); //W3schol A => &%+? html yazın kod haline gitryoursun ==güvenlik için
+    }
+
+
+
+    if(isset($_POST['gender'])){
+        $gender = ($_POST['gender']);
+        $gender = htmlentities(mysqli_real_escape_string($coon,$_POST['gender']));
+        if(!in_array($gender,['Male','Female'])){
+            $gender_error = '<p id ="error"> Please choose gender not a text !</p> ';// lutfan cinisiniz giriniz yazi değil;
+            $err_s = 1 ;//استخدمناها كي عندم الانتهاء من جميع العناصر ولم يوجد اي خطء ارفع 
+
+
+
+        }
+    }
 
 
 
 
 
+    if(empty($username)){//empty  ادخال giriş için
+        $user_error = '<p id = "error"> please enter username </p> ';
+        $err_s = 1 ;
+    }
+    elseif(strlen($username) < 6){//strlen شرط عدد احرف الادخال eğer ad sayı < 6 onun almaz
+        $user_error = '<p id ="error" >you username needs to have a minimum of 6 letters</p> ';
+         $err_s = 1 ;
+    }
+    elseif(filter_var($username,FILTER_VALIDATE_INT)){//filter_var(..,FILTER_VALIDATE_INT) تستخدم لتاكد من عدم وجود ارقام في الاسم ad içine sayı olmaz 
+        $user_error = '<p id="error"> please enter a valid username not a number </p> ';
+        $err_s = 1 ;
+    }
 
 
+    if(empty($email)){
+        $email_error = '<p id="error">please insert email</p>  ';
+        $err_s = 1 ;
+
+    }
+
+
+    if(empty($gender)){
+        $gender_error = '<p id="error"> please choose gender</p>  ';
+        $err_s = 1 ;
+    }
+
+    if(empty($birthdayy)){ //جمع تواريخ الميلاد 
+        $birthday_error = '<p id="error"> please insert date of birthday</p>  ';
+        $err_s = 1 ;
+    }
+
+    elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        $email_error = '<p id="error"> please a valid email </p> ';
+        $err_s = 1 ;
+    }
+
+    if(empty($gender)){
+        $gender_error = '<p id="error"> please choose gender</p>  ';
+        $err_s = 1 ;
+    }
+
+    if(empty($birthdayy)){ //جمع تواريخ الميلاد 
+        $birthday_error = '<p id="error"> please insert date of birthday</p>  ';
+        $err_s = 1 ;
+    }
+
+    if(empty($password)){
+        $pass_error = '<p id="error"> please insertn password</p> ';
+        $err_s = 1 ;
+        include('Update.php');
+    }
+    elseif(strlen($password) < 6){
+        $pass_error = '<p id="error"> you password needs to have a minimum of 6 letters </p> ';
+        $err_s = 1 ;
+        include('Update.php');
+    }
+
+
+    else{
+        if(($err_s == 0) ){
+           
+            $sql2 = "UPDATE  users SET username='$username',email='$email',password='$password',md5_pass='$md5_pass' WHERE id='$id' ";
+             mysqli_query($coon,$sql2);
+             
+              header('location:setting.php');
+
+             
+             
+             
+            
+        }
+        else{
+            include('Update.php');
+           
+        }
+    }
+
+
+
+}
+
+
+
+?>
 
 
 
@@ -30,13 +161,13 @@
 
 <div class="main">
 
-<h1> Register</h1>
+<h1> 	Amendment</h1>
 <i> Become a programmer</i> <br>
 <br>
 
 
 
-    <form action="kayd_ol_post.php" method="POST">
+    <form action="" method="POST">
 
 
                 <?php if(isset($user_error)){
@@ -44,21 +175,21 @@
                 } 
                 ?>
 
-             <input type="text" name="username" id="username" placeholder="username" ><br>
+             <input type="text" name="username" id="username" placeholder="username" value="<?php   echo $username;?>"><br>
 
              <?php if(isset($email_error)){
                     echo $email_error ;
                 } 
                 ?>
 
-             <input type="email" name="email" id="email" placeholder="mobile number or email"><br>
+             <input type="email" name="email" id="email" placeholder="mobile number or email" value="<?php   echo $email;?>"><br>
 
              <?php if(isset($pass_error)){
                     echo $pass_error ;
                 } 
                 ?>
              
-             <input type="password" name="password" id="password" placeholder="password"><br>
+             <input type="password" name="password" id="password" placeholder="password"  value="<?php   echo $password;?>"><br>
 
              
           
@@ -69,7 +200,7 @@
                 } 
                 ?>
 
-             <select name="gender" titel="gender choose male or female" id="">
+             <select name="gender" titel="gender choose male or female" id="" value="<?php   echo $gender;?>">
                  <option value="" disabled selected>Choose</option>
                  <option value="Male"> Male</option>
                  <option value="Female">Female </option>
@@ -82,7 +213,7 @@
                 } 
                 ?>
                 
-             <select aria-label="Gün" name="birthday_day" id="day" title="Gün" class="_9407 _5dba _9hk6 _8esg">
+             <select aria-label="Gün" name="birthday_day" id="day" title="Gün" class="_9407 _5dba _9hk6 _8esg" value="<?php echo $birthday_day;?>">
              <option disabled selected> Day</option>
                  <option value="1">1</option>
                  <option value="2">2</option>
@@ -116,7 +247,7 @@
                  <option value="30">30</option>
                  <option value="31">31</option>
              </select>
-             <select aria-label="Ay" name="birthday_month" id="month" title="Ay" class="_9407 _5dba _9hk6 _8esg">
+             <select aria-label="Ay" name="birthday_month" id="month" title="Ay" class="_9407 _5dba _9hk6 _8esg" value="<?php echo $birthday_month;?>">
              <option disabled selected> Month</option>
                  <option value="1">Oca</option>
                  <option value="2">Şub</option>
@@ -131,7 +262,7 @@
                  <option value="11">Kas</option>
                  <option value="12">Ara</option>
              </select>
-             <select aria-label="Yıl" name="birthday_yearr" id="year" title="Yıl" class="_9407 _5dba _9hk6 _8esg">
+             <select aria-label="Yıl" name="birthday_yearr" id="year" title="Yıl" class="_9407 _5dba _9hk6 _8esg" value="<?php echo $birthday_yearr;?>">
              <option disabled selected> Year</option>
                  <option value="2022" >2022</option>
                  <option value="2021">2021</option><option value="2020">2020</option>
@@ -191,15 +322,25 @@
                  <option value="1907">1907</option><option value="1906">1906</option><option value="1905">1905</option>
              </select><Br>
           
-            <input type="submit" name="submit" id="submit" value="Register"  ><br>
+            <input type="submit" name="submit" id="submit" value="	Amendment"  ><br>
 
          </form> 
            
-   <h3> Or</h3><br>
-   <a  id="log" href="index.php"> Log in</a>
+
 
 </div>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

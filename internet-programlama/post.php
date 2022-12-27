@@ -37,7 +37,7 @@ if(!isset($err_s )){
     $num_rows = mysqli_num_rows($result);
     if($num_rows != 0){
          $row = mysqli_fetch_array($result);
-        if($row['username'] === $username1 && $row['password'] === $password1){
+        if($row['username'] === $username1 && $row['password'] === $password1 ){
          $_SESSION['username'] = $row['username'] ;// هي الجلسة الخاصة بنا اي عندما اخد رابط الموقع ياخذه مفتوح _SESSION
         $_SESSION['id'] = $row['id'] ;//_SESSION Rul alndığı zaman kayd varza kayd sayfa gitemiyor 
         header('location:ListeEkran.php') ;
@@ -45,7 +45,7 @@ if(!isset($err_s )){
         }
 
     }else{
-        $username_error = '<p id="error"> worng username or password </p>';
+        $username_err   = '<p id="error"> worng username or password </p>';
     include('index.php');
     exit();
    

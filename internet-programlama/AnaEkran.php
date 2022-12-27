@@ -759,7 +759,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
                     echo $user_error ;
                 } 
                 ?>
-                    <input class="input" type="text" placeholder="Ad" name="username">
+                    <input class="input" type="text" placeholder="username" name="username">
 
                     <?php if(isset($email_error)){
                     echo $email_error ;
@@ -771,13 +771,13 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
                     echo  $nomara_error;
                 } 
                 ?>
-                    <input class="input" type="text" placeholder=" TL No" name="tlfo">
+                    <input class="input" type="text" placeholder="Phone Number" name="tlfo">
 
                     <?php if(isset( $messag_error)){
                     echo  $messag_error;
                 } 
                 ?>
-                    <textarea class="input" name="messag" placeholder="sikintisi yaz"></textarea>
+                    <textarea class="input" name="messag" placeholder=" The Problem"></textarea>
 
                     <input type="submit" value="submit" name="submit">
                 </form>
@@ -834,16 +834,16 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
                         <a href="#C"> <i class="fa-sharp fa-solid fa-c"></i> C </a>
                     </li>
                     <li>
-                        <a href=""> <i class="fa-sharp fa-solid fa-c">#</i>  C# </a>
+                        <a href="C#"> <i class="fa-sharp fa-solid fa-c">#</i>  C# </a>
                     </li>
                     <li>
                         <a href="#HTML" > <i class="fa-brands fa-html5"></i> HTML </a>
                     </li>
                     <li>
-                        <a href=""> <i class="fa-brands fa-css3-alt"></i> CSS </a>
+                        <a href="#CSS"> <i class="fa-brands fa-css3-alt"></i> CSS </a>
                     </li>
                     <li>
-                        <a href=""> <i class="fa-brands fa-js"></i> JavaScript</a>
+                        <a href="#JavaScript"> <i class="fa-brands fa-js"></i> JavaScript</a>
                     </li>
 
                 
@@ -874,7 +874,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
              </div>
          </div>
          <p class="copyright">
-            <span>elzero</span> 
+            <span>M.ELSUSE</span> 
            &copy;2022 <span> Her Yerde</span>All rights are available <br>
         </p>
      </footer>
