@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 27 Ara 2022, 16:04:10
+-- Üretim Zamanı: 28 Ara 2022, 19:37:20
 -- Sunucu sürümü: 10.4.27-MariaDB
 -- PHP Sürümü: 8.1.12
 
@@ -36,6 +36,13 @@ CREATE TABLE `mess` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Tablo döküm verisi `mess`
+--
+
+INSERT INTO `mess` (`id`, `username`, `email`, `tlfo`, `messag`) VALUES
+(25, 'muhammed', 'dsfgdgdf@gmail.com', '354674432424', 'ghggvvg');
+
+--
 -- Dökümü yapılmış tablolar için indeksler
 --
 
@@ -53,7 +60,7 @@ ALTER TABLE `mess`
 -- Tablo için AUTO_INCREMENT değeri `mess`
 --
 ALTER TABLE `mess`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

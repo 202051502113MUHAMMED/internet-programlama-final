@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 27 Ara 2022, 16:04:03
+-- Üretim Zamanı: 28 Ara 2022, 19:37:09
 -- Sunucu sürümü: 10.4.27-MariaDB
 -- PHP Sürümü: 8.1.12
 
@@ -43,7 +43,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `md5_pass`, `gender`, `birthdayy`, `profile_img`) VALUES
-(63, 'muhammed', 'muhammed42@gmail.com', '123123', '4297f44b13955235245b2497399d7a93', 'Male', '1-1-2002', '63ab073f210dc8.07724278.jpg');
+(63, 'muhammed', 'muhammed42@gmail.com', '123123', '4297f44b13955235245b2497399d7a93', 'Male', '1-1-2002', '63ac8a2c1a8b59.34828418.jpg'),
+(66, 'gfhnghrtyt56', 'murat@sari.com', '123123123', 'f5bb0c8de146c67b44babbf4e6584cc0', 'Male', '14-5-2009', 'profile_erkek.png');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -63,7 +64,7 @@ ALTER TABLE `users`
 -- Tablo için AUTO_INCREMENT değeri `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
