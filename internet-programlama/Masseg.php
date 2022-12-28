@@ -187,8 +187,8 @@ border: 1px solid white;
                 ?>
                     <textarea class="input" name="messag" placeholder="The Problem"></textarea>
 
-                    <?php if(isset( $tamam)){
-                    echo  $tamam;
+                    <?php if(isset( $erroe12)){
+                    echo  $erroe12;
                 } 
                 ?>
 

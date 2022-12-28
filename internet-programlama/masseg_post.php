@@ -72,8 +72,9 @@ if(isset($_POST['submit'])){
     
         }
         else{
-            include('ListeEkran.php');
-            exit();
+            // include('ListeEkran.php');
+            // exit();
+            $erroe12 = "<p id='eroor'> olmadı</p>";
            
         }
     }

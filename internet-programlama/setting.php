@@ -1,13 +1,13 @@
 <?php
 session_start();
 include ('inclod/connections.php');
-// if(isset($_SESSION['id']) && isset($_SESSION['username'])){
+if(isset($_SESSION['id']) && isset($_SESSION['username'])){
 
-//     $id = $_SESSION['id'] ;
-//     $user = $_SESSION['username'];
-//     $info = mysqli_query($coon,"select *  from users where username='$user'");
-//     while($data = mysqli_fetch_array($info)){
-//         $muh="<img id='img_profil' src='fotograf lar/".$data['profile_img']."' aıt='fotograf yok !'>";}
+    $id = $_SESSION['id'] ;
+    $user = $_SESSION['username'];
+    $info = mysqli_query($coon,"select *  from users where username='$user'");
+    while($data = mysqli_fetch_array($info)){
+        $muh="<img id='img_profil' src='fotograf lar/".$data['profile_img']."' aıt='fotograf yok !'>";}
 ?>
 
 <!DOCTYPE html>
@@ -26,14 +26,33 @@ include ('inclod/connections.php');
         color:red;
         font-size:20px;
       }
+      #img_profil{
+      
+        background-color: white;
+    position: relative;
+    left: 495px;
+    top: -28px;
+    max-width: 45px;
+    border-radius: 27px;
+    position: absolute;
+    top: 94px;
+      }
+      
     </style>
 </head>
 <body>
     <div class="container">
+
     <div id="google_translate_element"></div>
+        <?php echo $muh; ?> 
         <button class="btn btn-primary my-5" style=" font-size: 22px;"><a href="Add_user.php" class="text-light" style="text-decoration: none;">Add User</a> </button>
         <button class="btn btn-primary my-5" style=" font-size: 22px;"><a href="ListeEkran.php" class="text-light" style="text-decoration: none;">ListeEkran</a> </button>
         <button class="btn btn-primary my-5" style=" font-size: 22px;"><a href="index.php" class="text-light" style="text-decoration: none;">Giriş Yap</a> </button>
+        <form action="file_seting_podt.php" method="post" enctype="multipart/form-data">
+                <input class="files" type="file" name="file" id="file" placeholder="username"> </input>
+            
+                <input type="submit" value="UPLOAD" name="submit">
+             </form>
 
         <table class="table">
   <thead>
@@ -105,3 +124,12 @@ include ('inclod/connections.php');
     <script src="js/main.js"></script>
 </body>
 </html>
+
+<?php
+    
+
+}else{
+    // header ('location:index.php');
+    // exit();
+}
+?>
