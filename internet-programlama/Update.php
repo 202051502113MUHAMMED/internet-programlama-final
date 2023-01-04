@@ -1,7 +1,7 @@
 <?php
 include ('inclod/connections.php');
 
-    $id=$_GET['id'];
+    $id=$_GET['id1'];
     $sql= "SELECT * FROM users WHERE id='$id'" ;
     $data=mysqli_query($coon,$sql);
     $row=mysqli_fetch_array($data);

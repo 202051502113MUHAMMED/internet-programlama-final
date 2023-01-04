@@ -1,13 +1,13 @@
 <?php
 session_start();
-include ('inclod/connections.php');
+include ('inclod/conne.php');
 if(isset($_SESSION['id']) && isset($_SESSION['username'])){
 
     $id = $_SESSION['id'] ;
     $user = $_SESSION['username'];
-    $info = mysqli_query($coon,"select *  from users where username='$user'");
+    $info = mysqli_query($coon1,"SELECT * FROM mess WHERE username='$user'");
     while($data = mysqli_fetch_array($info)){
-        $muh="<img id='img_profil' src='fotograf lar/".$data['profile_img']."' aıt='fotograf yok !'>";}
+        $muh1="<img id='img_profil1' src='fotograf lar/".$data['profile_img']."' aıt='fotograf yok !'>";}
 ?>
 
 <!DOCTYPE html>
@@ -26,16 +26,16 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
         color:red;
         font-size:20px;
       }
-      #img_profil{
+      #img_profil1{
       
-        background-color: white;
+    background-color: white;
     position: relative;
     left: 495px;
     top: -28px;
     max-width: 45px;
     border-radius: 27px;
     position: absolute;
-    top: 0px
+    top: 22px;
       }
       
     </style>
@@ -44,11 +44,12 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
     <div class="container">
 
     <div id="google_translate_element"></div>
-        <?php echo $muh; ?> 
-        <button class="btn btn-primary my-5" style=" font-size: 22px;"><a href="Add_user.php" class="text-light" style="text-decoration: none;">Add User</a> </button>
-        <button class="btn btn-primary my-5" style=" font-size: 22px;"><a href="mesig_panal.php" class="text-light" style="text-decoration: none;">Mesgler</a> </button>
+
+             
+
+        <button class="btn btn-primary my-5" style=" font-size: 22px;"><a href="udetmessig.php" class="text-light" style="text-decoration: none;">Mesgler</a> </button>
+        <button class="btn btn-primary my-5" style=" font-size: 22px;"><a href="setting.php" class="text-light" style="text-decoration: none;">setting</a> </button>
         <button class="btn btn-primary my-5" style=" font-size: 22px;"><a href="ListeEkran.php" class="text-light" style="text-decoration: none;">ListeEkran</a> </button>
-        <button class="btn btn-primary my-5" style=" font-size: 22px;"><a href="index.php" class="text-light" style="text-decoration: none;">Giriş Yap</a> </button>
         <form action="file_seting_podt.php" method="post" enctype="multipart/form-data">
                 <input class="files" type="file" name="file" id="file" placeholder="username"> </input>
             
@@ -61,7 +62,8 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
       <th scope="col">id</th>
       <th scope="col">Username</th>
       <th scope="col">Email</th>
-      <th scope="col">password</th>
+      <th scope="col">Pone</th>
+      <th scope="col">Messeg</th>
       <th scope="col">Amendment</th>
     </tr>
   </thead>
@@ -69,22 +71,24 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
 
 
   <?php 
-  $sql="SELECT  id,username,email,password FROM users";
-  $result=mysqli_query($coon,$sql);
+  $sql="SELECT  id,username,email,tlfo,messag FROM mess";
+  $result=mysqli_query($coon1,$sql);
   if($result){
     while($row=mysqli_fetch_assoc($result)){
         $id=$row['id'];
         $username=$row['username'];
         $email=$row['email'];
-        $password=$row['password'];
+        $tlf=$row['tlfo'];
+        $mesig=$row['messag'];
         echo '<tr>
         <th scope="row">'.$id.'</th>
         <td>'.$username.'</td>
         <td>'.$email.'</td>
-        <td>'.$password.'</td>
+        <td>'.$tlf.'</td>
+        <td>'.$mesig.'</td>
         <td> 
-        <button class="btn btn-primary"><a href="Update.php?id1='.$id.'" class="text-light" style="text-decoration: none;" >Update</a></button>
-        <button class="btn btn-danger"><a href="setting.php?deleteid='.$id.'" class="text-light" style="text-decoration: none;" > Delete</a></button>
+        <button class="btn btn-primary"><a href="panalmessig.php?udetd='.$id.'" class="text-light" style="text-decoration: none;" >Update</a></button>
+        <button class="btn btn-danger"><a href="mesig_panal.php?deleteid1='.$id.'" class="text-light" style="text-decoration: none;" > Delete</a></button>
        </td> 
       </tr>';
       
@@ -93,20 +97,20 @@ if(isset($_SESSION['id']) && isset($_SESSION['username'])){
 
   }
 
-  if(isset($_GET['deleteid'])){
-    $id=$_GET['deleteid'];
+  if(isset($_GET['deleteid1'])){
+    $id=$_GET['deleteid1'];
 
 
 
-    $sql = "DELETE FROM users WHERE id=$id ";
-    $result=mysqli_query($coon,$sql);
+    $sql = "DELETE FROM mess WHERE id=$id ";
+    $result=mysqli_query($coon1,$sql);
     if($result){ 
-         header('location:setting.php');
+         header('location:mesig_panal.php');
         
     }else{
         die('Error' .mysqli_connect_erroe());
     }
-}
+ }
 
 
 
